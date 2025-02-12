@@ -8,19 +8,20 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
 import org.mapstruct.NullValuePropertyMappingStrategy;
+import org.springframework.data.domain.Page;
+
+import java.util.List;
 
 @Mapper(componentModel = "spring",
         nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
 public interface BagMapper {
     Bag toBag(BagRequestDto bagRequestDto);
 
-    @Mapping(source = "id", target = "id")
-    @Mapping(source = "type", target = "type")
-    @Mapping(source = "price", target = "price")
-    BagResponse toBagResponse(Bag bag);
+    List<BagResponse> toBagListResponse(List<Bag> bag);
 
     void updateEntityField(BagRequestDto bagRequestDto, @MappingTarget Bag bag);
 
     BagInfoResponse toBagInfoResponse(Bag bag);
 
+    BagResponse toBagResponse(Bag bag);
 }

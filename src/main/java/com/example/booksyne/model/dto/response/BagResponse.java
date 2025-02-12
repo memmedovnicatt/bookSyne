@@ -1,5 +1,6 @@
 package com.example.booksyne.model.dto.response;
 
+import com.example.booksyne.model.enums.ProductStatus;
 import lombok.Data;
 
 @Data

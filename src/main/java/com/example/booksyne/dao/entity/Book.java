@@ -1,10 +1,13 @@
 package com.example.booksyne.dao.entity;
 
+import com.example.booksyne.model.enums.ProductStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.time.format.SignStyle;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,11 +25,10 @@ public class Book {
     private String genre;
     private String language;
     private Integer vol;
+    private Integer stock;
 
-    private String pdfFilePath;
-
-    @ManyToOne(cascade = CascadeType.MERGE,fetch = FetchType.LAZY)
-    @JoinColumn(name = "author_id",referencedColumnName ="id")
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id", referencedColumnName = "id")
     @JsonIgnore
     private Author author;
 }

@@ -15,10 +15,10 @@ public class Supplier {
     private Integer id;
 
     private String name;
-    private String color;
     private String address;
     private String mail;
-    private String phone_number;
+    private String phoneNumber;
 
-
+    @OneToMany(mappedBy = "supplier", cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
+    private List<Gift> gifts;
 }
